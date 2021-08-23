@@ -1,5 +1,5 @@
 # BK894-895-LCR-Meter-USB
-Simple Python script for BK894 &amp; BK895 Bench LCR meters 
+Simple Python script for BK894 &amp; BK895 Bench LCR meters.
 For more details and to modify this code, look at the [programming manual] bellow....
 
 - select device
