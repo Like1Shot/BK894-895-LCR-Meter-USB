@@ -4,7 +4,7 @@ For more details and to modify this code, look at the [programming manual] bello
 
 - select device
 - start/target value, step value --> creates an array
-  (ex. start = -5.0V; target = 5.0V, step = 0.1V 
+  (ex. start = -5.0V, target = 5.0V, step = 0.1V
 --> [-5.0, -4.9 ... 4.9, 5.0, 4.9 ...-5.0]
 - select measurement type
 - set Frequency
