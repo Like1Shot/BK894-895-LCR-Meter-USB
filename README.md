@@ -5,6 +5,7 @@
 * Simple Python script for BK894 &amp; BK895 Bench LCR meters.
 * For more details and to modify this code, look at the [programming manual] bellow....
 
+### This Code will do: 
 - select device
 - start/target value, step value --> creates an array
   (ex. start = -5.0V, target = 5.0V, step = 0.1V
