@@ -38,15 +38,16 @@ print(voltageArray)
 
 #fields = ["Bias Volatage[V]", "Cp", "d"]
 with open("output.csv", "w", newline = "") as f:
-    cvswriter = csv.writer(f)
-    #cvswriter.writerow(fields) 
+    wr = csv.writer(f)
+    #wr.writerow(fields) 
     for i in range(voltageArray):
         voltage = voltageArray[i]
         cmd = "bias:volt "+str(voltage)
         vi.write(cmd)
         resp = str(voltage)+","+vi.query("fetch?") 
-        csvwriter.writerow(resp)
         print(resp)
+        #np.savetxt(f, delimiter = ",", fmt="%f")
+        wr.writerow(resp)
 f.close()
 
 # initial DC bias setting - off
