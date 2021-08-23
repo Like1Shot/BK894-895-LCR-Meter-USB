@@ -15,6 +15,6 @@
 - save to .csv
 
 ## Documentation
-Manual: https://bkpmedia.s3.amazonaws.com/downloads/manuals/en-us/894_895_manual.pdf
-Programming Manual: https://bkpmedia.s3.amazonaws.com/downloads/programming_manuals/en-us/894_895_programming_manual.pdf
-Datasheet: https://bkpmedia.s3.amazonaws.com/downloads/datasheets/en-us/894_895_datasheet.pdf
+* Manual: https://bkpmedia.s3.amazonaws.com/downloads/manuals/en-us/894_895_manual.pdf
+* Programming Manual: https://bkpmedia.s3.amazonaws.com/downloads/programming_manuals/en-us/894_895_programming_manual.pdf
+* Datasheet: https://bkpmedia.s3.amazonaws.com/downloads/datasheets/en-us/894_895_datasheet.pdf
