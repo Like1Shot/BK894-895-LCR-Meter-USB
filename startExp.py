@@ -1,4 +1,4 @@
-import time
+from time import sleep
 import pyvisa as visa
 import numpy as np
 import csv
@@ -22,23 +22,25 @@ vi.write("bias:state " + biasState)
 
 # set constant frequency
 freqValue = input("Set Frequency(ex. 1MHz): ")
-vi.write("freq" + freqValue)
+vi.write("freq " + freqValue)
 
 # input start, target, and step voltage
 start = input("Enter Start value?[V]: ")
 target = input("Enter Target value?[V]: ")
 step = input("Enter Step value[V]?: ")
 
+#voltageArrayForward = np.arange(-5.0, 5.1, 0.1).round(2)
+#voltageArrayBackward = np.arange(4.9, -5.1, -0.1).round(2)
 voltageArrayForward = np.arange(float(start), float(target)+float(step), float(step)).round(2)
 voltageArrayBackward = np.arange(float(target) - float(step), float(start) - float(step), float(step)).round(2)
 voltageArray = np.append(voltageArrayForward, voltageArrayBackward)
 print(voltageArray)
 
 #fields = ["Bias Volatage[V]", "Cp", "d"]
-with open("terminalOutput.csv", "w", newline = "") as f:
+with open("output.csv", "w", newline = "") as f:
     cvswriter = csv.writer(f)
     #cvswriter.writerow(fields) 
-    for i in voltageArray:
+    for i in range(voltageArray):
         voltage = voltageArray[i]
         cmd = "bias:volt "+str(voltage)
         vi.write(cmd)
