@@ -32,22 +32,18 @@ step = input("Enter Step value[V]?: ")
 #voltageArrayForward = np.arange(-5.0, 5.1, 0.1).round(2)
 #voltageArrayBackward = np.arange(4.9, -5.1, -0.1).round(2)
 voltageArrayForward = np.arange(float(start), float(target)+float(step), float(step)).round(2)
-voltageArrayBackward = np.arange(float(target) - float(step), float(start) - float(step), float(step)).round(2)
+voltageArrayBackward = np.arange(float(target) - float(step), float(start) - float(step), -float(step)).round(2)
 voltageArray = np.append(voltageArrayForward, voltageArrayBackward)
 print(voltageArray)
-
-#fields = ["Bias Volatage[V]", "Cp", "d"]
-with open("output.csv", "w", newline = "") as f:
-    wr = csv.writer(f)
-    #wr.writerow(fields) 
-    for i in range(voltageArray):
-        voltage = voltageArray[i]
-        cmd = "bias:volt "+str(voltage)
-        vi.write(cmd)
-        resp = str(voltage)+","+vi.query("fetch?") 
-        print(resp)
-        #np.savetxt(f, delimiter = ",", fmt="%f")
-        wr.writerow(resp)
+count = np.size(voltageArrray)
+                  
+for i in range(count):
+   voltage = voltageArray[i]
+   cmd = "bias:volt "+str(voltage)
+   vi.write(cmd)
+   resp = str(voltage)+","+vi.query("fetch?") 
+   print(resp)
+   wr.writerow(resp)
 f.close()
 
 # initial DC bias setting - off
