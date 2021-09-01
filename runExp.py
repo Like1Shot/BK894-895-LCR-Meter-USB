@@ -60,7 +60,7 @@ with open("output.csv", "w", newline = "") as f:
         vi.write(cmd)
         resp = str(voltage)+","+vi.query("fetch?")
         print(resp.rstrip('\n'))
-        csv.writer(f, delimiter = ',', resp)
+        csv.writer(f, delimiter = ',')
         csv.write("\n")
 f.close()
 
