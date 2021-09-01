@@ -34,7 +34,6 @@ voltageArray = np.append(voltageArray, voltageArray4)
 print(voltageArray)
 count = np.size(voltageArray)
 
-
 #Measurement mode? (CPD, CPG, CPRP, etc., see a program manual
 MesOp = "CPG"
 vi.write("func:imp " + MesOp)
@@ -52,23 +51,18 @@ vi.write(setFreq)
 setVolt = "Volt 1 V"
 vi.write(setVolt)
 
-
 print(setFreq)
 print("Voltage level" + setVolt)
 with open("output.csv", "w", newline = "") as f:
-    #wr = csv.writer(f)
-    #cvswriter.writerow(fields)
     for i in range(int(count)):
         voltage = voltageArray[i]
         cmd = "bias:volt "+str(voltage)
         vi.write(cmd)
         resp = str(voltage)+","+vi.query("fetch?")
         print(resp.rstrip('\n'))
-        #print(type(resp))
-        #csv.writer(f, delimiter=',')
-        #np.savetxt(f, resp, delimiter = ",")
+        csv.writer(f, delimiter = ',', resp)
+        csv.write("\n")
 f.close()
-
 
 vi.write(setBias + "0")
 
